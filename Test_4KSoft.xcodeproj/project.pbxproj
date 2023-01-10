@@ -3,18 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F237A847F6AE7AE5B95A4BC /* Pods_Test_4KSoft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5808EC3B2199CC505CCD99E9 /* Pods_Test_4KSoft.framework */; };
 		E3C46A37296D5F0D00825C07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A36296D5F0D00825C07 /* AppDelegate.swift */; };
 		E3C46A39296D5F0D00825C07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A38296D5F0D00825C07 /* SceneDelegate.swift */; };
 		E3C46A40296D5F0F00825C07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3C46A3F296D5F0F00825C07 /* Assets.xcassets */; };
 		E3C46A43296D5F0F00825C07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3C46A41296D5F0F00825C07 /* LaunchScreen.storyboard */; };
 		E3C46A4B296D603800825C07 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A4A296D603800825C07 /* MainViewController.swift */; };
+		E3C46A51296D68F000825C07 /* Doors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A50296D68F000825C07 /* Doors.swift */; };
+		E3C46A54296D691500825C07 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A53296D691500825C07 /* Networking.swift */; };
+		E3C46A75296D6E0C00825C07 /* DoorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A74296D6E0C00825C07 /* DoorTableViewCell.swift */; };
+		E3C46A79296D7EE800825C07 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A78296D7EE800825C07 /* TableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5808EC3B2199CC505CCD99E9 /* Pods_Test_4KSoft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test_4KSoft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ABE19319C08849FCEC38054 /* Pods-Test_4KSoft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_4KSoft.release.xcconfig"; path = "Target Support Files/Pods-Test_4KSoft/Pods-Test_4KSoft.release.xcconfig"; sourceTree = "<group>"; };
+		AED773B9B962C96EB27359C9 /* Pods-Test_4KSoft.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_4KSoft.debug.xcconfig"; path = "Target Support Files/Pods-Test_4KSoft/Pods-Test_4KSoft.debug.xcconfig"; sourceTree = "<group>"; };
 		E3C46A33296D5F0D00825C07 /* Test_4KSoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test_4KSoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C46A36296D5F0D00825C07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3C46A38296D5F0D00825C07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +30,10 @@
 		E3C46A42296D5F0F00825C07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3C46A44296D5F0F00825C07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3C46A4A296D603800825C07 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E3C46A50296D68F000825C07 /* Doors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doors.swift; sourceTree = "<group>"; };
+		E3C46A53296D691500825C07 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		E3C46A74296D6E0C00825C07 /* DoorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorTableViewCell.swift; sourceTree = "<group>"; };
+		E3C46A78296D7EE800825C07 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F237A847F6AE7AE5B95A4BC /* Pods_Test_4KSoft.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01D4BF3EA34C6230A57C3A9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AED773B9B962C96EB27359C9 /* Pods-Test_4KSoft.debug.xcconfig */,
+				6ABE19319C08849FCEC38054 /* Pods-Test_4KSoft.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		284984BA75A5CFC9D1F5DE81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5808EC3B2199CC505CCD99E9 /* Pods_Test_4KSoft.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E3C46A2A296D5F0D00825C07 = {
 			isa = PBXGroup;
 			children = (
 				E3C46A35296D5F0D00825C07 /* Test_4KSoft */,
 				E3C46A34296D5F0D00825C07 /* Products */,
+				01D4BF3EA34C6230A57C3A9B /* Pods */,
+				284984BA75A5CFC9D1F5DE81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +86,50 @@
 		E3C46A35296D5F0D00825C07 /* Test_4KSoft */ = {
 			isa = PBXGroup;
 			children = (
+				E3C46A52296D690600825C07 /* Managers */,
+				E3C46A4F296D68AC00825C07 /* Controllers */,
+				E3C46A4E296D68A800825C07 /* Views */,
+				E3C46A4D296D689F00825C07 /* Models */,
 				E3C46A36296D5F0D00825C07 /* AppDelegate.swift */,
 				E3C46A38296D5F0D00825C07 /* SceneDelegate.swift */,
-				E3C46A4A296D603800825C07 /* MainViewController.swift */,
 				E3C46A3F296D5F0F00825C07 /* Assets.xcassets */,
 				E3C46A41296D5F0F00825C07 /* LaunchScreen.storyboard */,
 				E3C46A44296D5F0F00825C07 /* Info.plist */,
 			);
 			path = Test_4KSoft;
+			sourceTree = "<group>";
+		};
+		E3C46A4D296D689F00825C07 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3C46A50296D68F000825C07 /* Doors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3C46A4E296D68A800825C07 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3C46A74296D6E0C00825C07 /* DoorTableViewCell.swift */,
+				E3C46A78296D7EE800825C07 /* TableHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E3C46A4F296D68AC00825C07 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E3C46A4A296D603800825C07 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E3C46A52296D690600825C07 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E3C46A53296D691500825C07 /* Networking.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3C46A47296D5F0F00825C07 /* Build configuration list for PBXNativeTarget "Test_4KSoft" */;
 			buildPhases = (
+				9380F23C2767F9B59FF2775C /* [CP] Check Pods Manifest.lock */,
 				E3C46A2F296D5F0D00825C07 /* Sources */,
 				E3C46A30296D5F0D00825C07 /* Frameworks */,
 				E3C46A31296D5F0D00825C07 /* Resources */,
+				86EAA1DB47CD0095FF1582C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -100,7 +170,7 @@
 				};
 			};
 			buildConfigurationList = E3C46A2E296D5F0D00825C07 /* Build configuration list for PBXProject "Test_4KSoft" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -129,13 +199,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		86EAA1DB47CD0095FF1582C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Test_4KSoft/Pods-Test_4KSoft-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Test_4KSoft/Pods-Test_4KSoft-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Test_4KSoft/Pods-Test_4KSoft-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9380F23C2767F9B59FF2775C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Test_4KSoft-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E3C46A2F296D5F0D00825C07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E3C46A37296D5F0D00825C07 /* AppDelegate.swift in Sources */,
+				E3C46A54296D691500825C07 /* Networking.swift in Sources */,
+				E3C46A51296D68F000825C07 /* Doors.swift in Sources */,
+				E3C46A75296D6E0C00825C07 /* DoorTableViewCell.swift in Sources */,
 				E3C46A39296D5F0D00825C07 /* SceneDelegate.swift in Sources */,
+				E3C46A79296D7EE800825C07 /* TableHeaderView.swift in Sources */,
 				E3C46A4B296D603800825C07 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +386,7 @@
 		};
 		E3C46A48296D5F0F00825C07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AED773B9B962C96EB27359C9 /* Pods-Test_4KSoft.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +414,7 @@
 		};
 		E3C46A49296D5F0F00825C07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6ABE19319C08849FCEC38054 /* Pods-Test_4KSoft.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
