@@ -40,7 +40,6 @@ class TableHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // Configuring the constraints
     private func layout() {
         contentView.addSubview(mainView)
