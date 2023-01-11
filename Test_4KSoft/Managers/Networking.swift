@@ -12,9 +12,9 @@ class JsonManager {
     
     static let shared = JsonManager()
     
-    func fetchEquipment(success: @escaping ([Door]) -> (), failure: @escaping (String) -> ()) {
+    func fetchData(success: @escaping ([Door]) -> (), failure: @escaping (String) -> ()) {
         if let localData = self.readLocalFile(forName: "Doors") {
-            let demoData = self.getEquipment(jsonData: localData)
+            let demoData = self.getData(jsonData: localData)
             demoData != nil ? success(demoData!) : failure("Oops! Something went wrong.")
         }
     }
@@ -31,8 +31,8 @@ class JsonManager {
         return nil
     }
     
-    // Decode Equipment
-    private func getEquipment(jsonData: Data) -> [Door]? {
+    // Decode
+    private func getData(jsonData: Data) -> [Door]? {
         do {
             let decodedData = try JSONDecoder().decode([Door].self,from: jsonData)
             return decodedData

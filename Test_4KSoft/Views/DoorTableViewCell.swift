@@ -19,6 +19,8 @@ class DoorTableViewCell: UITableViewCell {
     static let identifier = "DoorTableViewCell"
     private var lockState: Lock!
     
+    // MARK: UI Objects
+    
     private let loadIndicator = UIActivityIndicatorView()
     
     private let mainView: UIView = {
@@ -63,6 +65,8 @@ class DoorTableViewCell: UITableViewCell {
         return label
     }()
     
+    // MARK: Init methods
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layout()
@@ -72,6 +76,9 @@ class DoorTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Public methods
+    
+    // Change state when cell is clicked
     func clickDoor() {
         if lockState == .locked {
             lockState = .unlocking
@@ -90,6 +97,24 @@ class DoorTableViewCell: UITableViewCell {
         }
     }
     
+    // Setting values for outlets
+    func setupView(model: Door) {
+        titleLabel.text =  model.title ?? ""
+        descriptionLabel.text = model.description ?? ""
+        leftImage.image = UIImage(named: model.leftImage ?? "")
+        rightImage.image = UIImage(named: model.rightImage ?? "")
+        if model.locked ?? true {
+            lockLabel.text = Lock.locked.rawValue
+            lockState = .locked
+        } else {
+            lockLabel.text = Lock.unlocked.rawValue
+            lockState = .unlocked
+        }
+    }
+    
+    // MARK: Private methods
+    
+    // Setting the state of the cell
     private func lockSetting(lock: Lock) {
         switch lock {
         case .locked:
@@ -115,20 +140,7 @@ class DoorTableViewCell: UITableViewCell {
         }
     }
     
-    func setupView(model: Door) {
-        titleLabel.text =  model.title ?? ""
-        descriptionLabel.text = model.description ?? ""
-        leftImage.image = UIImage(named: model.leftImage ?? "")
-        rightImage.image = UIImage(named: model.rightImage ?? "")
-        if model.locked ?? true {
-            lockLabel.text = Lock.locked.rawValue
-            lockState = .locked
-        } else {
-            lockLabel.text = Lock.unlocked.rawValue
-            lockState = .unlocked
-        }
-    }
-    
+    // Configuring the constraints
     private func layout() {
         contentView.addSubview(mainView)
         mainView.snp.makeConstraints {

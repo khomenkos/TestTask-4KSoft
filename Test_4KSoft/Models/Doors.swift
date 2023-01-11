@@ -14,5 +14,3 @@ struct Door: Decodable {
     let leftImage: String?
     let locked: Bool?
 }
-
-

@@ -13,6 +13,8 @@ class TableHeaderView: UITableViewHeaderFooterView {
     
     let mainView = UIView()
     
+    // MARK: UI Objects
+    
     let headerImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "HeaderHome")
@@ -27,6 +29,8 @@ class TableHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
+    // MARK: Init methods
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         layout()
@@ -36,6 +40,8 @@ class TableHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // Configuring the constraints
     private func layout() {
         contentView.addSubview(mainView)
         mainView.snp.makeConstraints {

@@ -11,6 +11,10 @@ class MainViewController: UIViewController {
     
     private var doors: [Door] = []
     
+    // MARK: UI Objects
+    
+    private let loadIndicator = UIActivityIndicatorView()
+    
     private let myDoorsTable: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
@@ -18,44 +22,70 @@ class MainViewController: UIViewController {
         return table
     }()
     
+    private let navBarImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "TitelImage")
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    private let settingsBtn:UIButton = {
+        let button = UIButton()
+        button.layer.borderWidth = 0.3
+        button.layer.cornerRadius = 13
+        button.setImage(UIImage(named: "SettingBtn"), for: .normal)
+        button.snp.makeConstraints {
+            $0.width.height.equalTo(40)
+        }
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .systemBackground
-        view.addSubview(myDoorsTable)
-    
-        myDoorsTable.delegate = self
-        myDoorsTable.dataSource = self
-        myDoorsTable.tableHeaderView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 250))
-        
+        setupView()
         setupNavigationTitle()
         fetchData()
     }
     
-    private func fetchData() {
-        JsonManager.shared.fetchEquipment { [weak self] result in
-            self?.doors = result
-            self?.myDoorsTable.reloadData()
-        } failure: { error in
-            print(error)
-        }
-    }
+    // MARK: View Methods
     
-    private func setupNavigationTitle() {
-        let navBarImage: UIImageView = {
-            let image = UIImageView()
-            image.image = UIImage(named: "TitelImage")
-            image.contentMode = .scaleAspectFill
-            return image
-        }()
-        
-        let imageItem = UIBarButtonItem(customView: navBarImage)
-        self.navigationItem.setLeftBarButton(imageItem, animated: true)
+    private func setupView() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(myDoorsTable)
+        view.addSubview(loadIndicator)
+        myDoorsTable.delegate = self
+        myDoorsTable.dataSource = self
+        myDoorsTable.tableHeaderView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 250))
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         myDoorsTable.frame = view.bounds
+        loadIndicator.frame = view.bounds
+    }
+    
+    // MARK: Private methods
+    
+    //Fetching data from Json
+    private func fetchData() {
+        loadIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            JsonManager.shared.fetchData { [weak self] result in
+                self?.loadIndicator.stopAnimating()
+                self?.doors = result
+                self?.myDoorsTable.reloadData()
+            } failure: { error in
+                print(error)
+            }
+        }
+    }
+    
+    // Setting NavigationBar
+    private func setupNavigationTitle() {
+        let buttonItem = UIBarButtonItem(customView: settingsBtn)
+        let imageItem = UIBarButtonItem(customView: navBarImage)
+        navigationItem.setRightBarButton(buttonItem, animated: true)
+        navigationItem.setLeftBarButton(imageItem, animated: true)
     }
 }
 
