@@ -8,14 +8,23 @@
 import UIKit
 import SnapKit
 
+enum Lock: String {
+    case locked = "Locked"
+    case unlocking = "Unlocking"
+    case unlocked = "Unlocked"
+}
+
 class DoorTableViewCell: UITableViewCell {
     
     static let identifier = "DoorTableViewCell"
+    private var lockState: Lock!
+    
+    private let loadIndicator = UIActivityIndicatorView()
     
     private let mainView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 10
-        view.layer.borderWidth = 1
+        view.layer.borderWidth = 0.2
         return view
     }()
     
@@ -62,13 +71,62 @@ class DoorTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    func clickDoor() {
+        if lockState == .locked {
+            lockState = .unlocking
+            lockSetting(lock: lockState)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.lockState = .unlocked
+                self.lockSetting(lock: self.lockState)
+            }
+        } else if lockState == .unlocked {
+            lockState = .unlocking
+            lockSetting(lock: lockState)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.lockState = .locked
+                self.lockSetting(lock: self.lockState)
+            }
+        }
+    }
+    
+    private func lockSetting(lock: Lock) {
+        switch lock {
+        case .locked:
+            loadIndicator.stopAnimating()
+            rightImage.alpha = 1
+            lockLabel.text = Lock.locked.rawValue
+            lockLabel.textColor = .black
+            rightImage.image = UIImage(named: "LockedRight")
+            leftImage.image = UIImage(named: "LockedLeft")
+        case .unlocked:
+            loadIndicator.stopAnimating()
+            lockLabel.text = Lock.unlocked.rawValue
+            rightImage.alpha = 1
+            lockLabel.textColor = .black
+            rightImage.image = UIImage(named: "UnlockedRight")
+            leftImage.image = UIImage(named: "UnlockedLeft")
+        case .unlocking:
+            lockLabel.text = Lock.unlocking.rawValue
+            lockLabel.textColor = .lightGray
+            leftImage.image = UIImage(named: "Loading")
+            rightImage.alpha = 0
+            loadIndicator.startAnimating()
+        }
+    }
+    
     func setupView(model: Door) {
         titleLabel.text =  model.title ?? ""
         descriptionLabel.text = model.description ?? ""
         leftImage.image = UIImage(named: model.leftImage ?? "")
         rightImage.image = UIImage(named: model.rightImage ?? "")
-        lockLabel.text = model.lock ?? ""
+        if model.locked ?? true {
+            lockLabel.text = Lock.locked.rawValue
+            lockState = .locked
+        } else {
+            lockLabel.text = Lock.unlocked.rawValue
+            lockState = .unlocked
+        }
     }
     
     private func layout() {
@@ -110,6 +168,12 @@ class DoorTableViewCell: UITableViewCell {
         lockLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(15)
+        }
+        
+        mainView.addSubview(loadIndicator)
+        loadIndicator.snp.makeConstraints {
+            $0.center.equalTo(rightImage)
+            $0.height.width.equalTo(22)
         }
     }
 }

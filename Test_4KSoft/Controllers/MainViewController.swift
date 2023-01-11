@@ -8,16 +8,10 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
-    private var doors: [Door] = [
-        Door(id: 1, title: "Door", description: "Home", rightImage: "rightImage", leftImage: "leftImage", lock: "Locked"),
-        Door(id: 2, title: "Door", description: "home", rightImage: "rightImage", leftImage: "leftImage", lock: "Locked"),
-        Door(id: 3, title: "Door", description: "home", rightImage: "rightImage", leftImage: "leftImage", lock: "Locked"),
-        Door(id: 2, title: "Door", description: "home", rightImage: "rightImage", leftImage: "leftImage", lock: "Locked"),
-        Door(id: 2, title: "Door", description: "home", rightImage: "rightImage", leftImage: "leftImage", lock: "Locked"),
-        Door(id: 2, title: "Door", description: "home", rightImage: "rightImage", leftImage: "leftImage", lock: "Locked")]
-
-    let myDoorsTable: UITableView = {
+    
+    private var doors: [Door] = []
+    
+    private let myDoorsTable: UITableView = {
         let table = UITableView()
         table.separatorStyle = .none
         table.register(DoorTableViewCell.self, forCellReuseIdentifier: DoorTableViewCell.identifier)
@@ -26,16 +20,25 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemBackground
         view.addSubview(myDoorsTable)
-        
+    
         myDoorsTable.delegate = self
         myDoorsTable.dataSource = self
+        myDoorsTable.tableHeaderView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 250))
         
         setupNavigationTitle()
-        
-        myDoorsTable.tableHeaderView = TableHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 250))
+        fetchData()
+    }
+    
+    private func fetchData() {
+        JsonManager.shared.fetchEquipment { [weak self] result in
+            self?.doors = result
+            self?.myDoorsTable.reloadData()
+        } failure: { error in
+            print(error)
+        }
     }
     
     private func setupNavigationTitle() {
@@ -60,11 +63,17 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return doors.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DoorTableViewCell.identifier) as? DoorTableViewCell else { return UITableViewCell() }
         cell.setupView(model: doors[indexPath.row])
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = myDoorsTable.cellForRow(at: indexPath) as! DoorTableViewCell
+        cell.clickDoor()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -74,7 +83,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.font = UIFont(name: "Gill Sans Bold", size: 25)
+        header.textLabel?.font = UIFont(name: "Gill Sans Bold", size: 23)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20,
                                          y: header.bounds.origin.y - 20,
                                          width: 200,

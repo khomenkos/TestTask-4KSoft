@@ -17,6 +17,7 @@
 		E3C46A54296D691500825C07 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A53296D691500825C07 /* Networking.swift */; };
 		E3C46A75296D6E0C00825C07 /* DoorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A74296D6E0C00825C07 /* DoorTableViewCell.swift */; };
 		E3C46A79296D7EE800825C07 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C46A78296D7EE800825C07 /* TableHeaderView.swift */; };
+		E3C46A7B296ED5A800825C07 /* Doors.json in Resources */ = {isa = PBXBuildFile; fileRef = E3C46A7A296ED5A800825C07 /* Doors.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E3C46A53296D691500825C07 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		E3C46A74296D6E0C00825C07 /* DoorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorTableViewCell.swift; sourceTree = "<group>"; };
 		E3C46A78296D7EE800825C07 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
+		E3C46A7A296ED5A800825C07 /* Doors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Doors.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		E3C46A52296D690600825C07 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E3C46A7A296ED5A800825C07 /* Doors.json */,
 				E3C46A53296D691500825C07 /* Networking.swift */,
 			);
 			path = Managers;
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3C46A7B296ED5A800825C07 /* Doors.json in Resources */,
 				E3C46A43296D5F0F00825C07 /* LaunchScreen.storyboard in Resources */,
 				E3C46A40296D5F0F00825C07 /* Assets.xcassets in Resources */,
 			);

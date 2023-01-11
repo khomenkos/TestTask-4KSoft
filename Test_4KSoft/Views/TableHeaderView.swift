@@ -10,12 +10,12 @@ import UIKit
 class TableHeaderView: UITableViewHeaderFooterView {
     
     static let identifier = "TableHeaderView"
-
+    
     let mainView = UIView()
     
     let headerImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "HeaderImage")
+        imageView.image = UIImage(named: "HeaderHome")
         return imageView
     }()
     

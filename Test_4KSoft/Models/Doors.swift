@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Door {
-    let id: Int?
+struct Door: Decodable {
     let title: String?
     let description: String?
     let rightImage: String?
     let leftImage: String?
-    let lock: String?
+    let locked: Bool?
 }
+
+

@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Door",
+        "description": "Home",
+        "rightImage": "LockedRight",
+        "leftImage": "LockedLeft",
+        "locked": true
+    },
+    {
+        "title": "Front Door",
+        "description": "Office",
+        "rightImage": "LockedRight",
+        "leftImage": "LockedLeft",
+        "locked": true
+    },
+    {
+        "title": "Door",
+        "description": "Home",
+        "rightImage": "UnlockedRight",
+        "leftImage": "UnlockedLeft",
+        "locked": false
+    },
+    {
+        "title": "Door",
+        "description": "Home",
+        "rightImage": "LockedRight",
+        "leftImage": "LockedLeft",
+        "locked": true
+    },
+    {
+        "title": "Front Door",
+        "description": "Office",
+        "rightImage": "LockedRight",
+        "leftImage": "LockedLeft",
+        "locked": true
+    },
+    {
+        "title": "Door",
+        "description": "Home",
+        "rightImage": "UnlockedRight",
+        "leftImage": "UnlockedLeft",
+        "locked": false
+    }
+]
